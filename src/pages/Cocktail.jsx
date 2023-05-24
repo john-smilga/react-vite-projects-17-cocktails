@@ -36,7 +36,7 @@ export const loader =
 const Cocktail = () => {
   const { id } = useLoaderData();
   const { data } = useQuery(singleCocktailQuery(id));
-  if (data.drinks === null) return <Navigate to='/' />;
+  if (!data) return <Navigate to='/' />;
 
   const singleDrink = data.drinks[0];
   const {
