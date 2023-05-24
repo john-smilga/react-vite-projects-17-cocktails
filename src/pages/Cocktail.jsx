@@ -1,6 +1,6 @@
 const singleCocktailUrl =
   'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=';
-import { redirect, useLoaderData, Link, Navigate } from 'react-router-dom';
+import { useLoaderData, Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { useQuery } from '@tanstack/react-query';
