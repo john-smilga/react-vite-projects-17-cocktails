@@ -4,7 +4,7 @@ import { redirect, useLoaderData, Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { useQuery } from '@tanstack/react-query';
-import { toast } from 'react-toastify';
+
 import Wrapper from '../assets/wrappers/CocktailPage';
 
 const singleCocktailQuery = (id) => {
@@ -21,16 +21,9 @@ export const loader =
   (queryClient) =>
   async ({ params }) => {
     const { id } = params;
-    try {
-      // const { data } = await axios.get(`${singleCocktailUrl}${id}`);
-      // return {id,data}
-      await queryClient.ensureQueryData(singleCocktailQuery(id));
-      return { id };
-    } catch (error) {
-      console.log(error);
-      toast.error('there was an error');
-      return redirect('/');
-    }
+
+    await queryClient.ensureQueryData(singleCocktailQuery(id));
+    return { id };
   };
 
 const Cocktail = () => {
