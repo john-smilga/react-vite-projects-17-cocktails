@@ -21,7 +21,6 @@ export const loader =
   (queryClient) =>
   async ({ params }) => {
     const { id } = params;
-
     await queryClient.ensureQueryData(singleCocktailQuery(id));
     return { id };
   };

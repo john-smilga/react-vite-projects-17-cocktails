@@ -32,6 +32,7 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: cocktailLoader(queryClient),
+        errorElement: <h2>there was an error...</h2>,
         element: <Landing />,
       },
       {
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: 'newsletter',
         action: newsletterAction,
-        errorElement: <h2>there was an error</h2>,
+        errorElement: <h2>there was an error...</h2>,
         element: <Newsletter />,
       },
       {
