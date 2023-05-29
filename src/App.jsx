@@ -1,17 +1,17 @@
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 import {
-  HomeLayout,
   About,
+  HomeLayout,
   Landing,
   Error,
   Newsletter,
   Cocktail,
+  SinglePageError,
 } from './pages';
-import { loader as cocktailLoader } from './pages/Landing';
+
+import { loader as landingLoader } from './pages/Landing';
 import { loader as singleCocktailLoader } from './pages/Cocktail';
 import { action as newsletterAction } from './pages/Newsletter';
 
@@ -31,33 +31,34 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: cocktailLoader(queryClient),
-        errorElement: <h2>there was an error...</h2>,
         element: <Landing />,
+        errorElement: <SinglePageError />,
+        loader: landingLoader(queryClient),
+      },
+      {
+        path: 'cocktail/:id',
+        errorElement: <SinglePageError />,
+        loader: singleCocktailLoader(queryClient),
+        element: <Cocktail />,
+      },
+      {
+        path: 'newsletter',
+        element: <Newsletter />,
+        action: newsletterAction,
+        errorElement: <SinglePageError />,
       },
       {
         path: 'about',
         element: <About />,
       },
-      {
-        path: 'newsletter',
-        action: newsletterAction,
-        errorElement: <h2>there was an error...</h2>,
-        element: <Newsletter />,
-      },
-      {
-        path: 'cocktail/:id',
-        loader: singleCocktailLoader(queryClient),
-        errorElement: <h2>there was an error...</h2>,
-        element: <Cocktail />,
-      },
     ],
   },
 ]);
+
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} />;
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

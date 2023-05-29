@@ -10,7 +10,6 @@ const Wrapper = styled.nav`
     flex-direction: column;
     padding: 1.5rem 2rem;
   }
-
   .logo {
     font-size: clamp(1.5rem, 3vw, 3rem);
     color: var(--primary-500);
@@ -27,7 +26,7 @@ const Wrapper = styled.nav`
     color: var(--grey-900);
     padding: 0.5rem 0.5rem 0.5rem 0;
     transition: var(--transition);
-    letter-spacing: 1px;
+    letter-spacing: 2px;
   }
   .nav-link:hover {
     color: var(--primary-500);
@@ -35,7 +34,6 @@ const Wrapper = styled.nav`
   .active {
     color: var(--primary-500);
   }
-
   @media (min-width: 768px) {
     .nav-center {
       flex-direction: row;

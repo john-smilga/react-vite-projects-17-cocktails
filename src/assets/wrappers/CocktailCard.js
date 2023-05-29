@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 const Wrapper = styled.article`
   background: var(--white);
-  box-shadow: var(--lightShadow);
+  box-shadow: var(--shadow-2);
   transition: var(--transition);
   display: grid;
   grid-template-rows: auto 1fr;
   border-radius: var(--borderRadius);
-  box-shadow: var(--shadow-2);
   :hover {
     box-shadow: var(--shadow-4);
   }
@@ -17,7 +16,6 @@ const Wrapper = styled.article`
   }
   .footer {
     padding: 1.5rem;
-
     h4,
     h5 {
       margin-bottom: 0.5rem;
@@ -27,7 +25,6 @@ const Wrapper = styled.article`
     }
     p {
       margin-bottom: 1rem;
-
       color: var(--grey-500);
     }
   }

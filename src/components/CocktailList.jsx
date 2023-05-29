@@ -1,12 +1,11 @@
-import CocktailCard from './CocktailCard';
 import Wrapper from '../assets/wrappers/CocktailList';
-const DrinkList = ({ drinks }) => {
+import CocktailCard from './CocktailCard';
+const CocktailList = ({ drinks }) => {
   if (!drinks) {
     return (
       <h4 style={{ textAlign: 'center' }}>No matching cocktails found...</h4>
     );
   }
-
   const formattedDrinks = drinks.map((item) => {
     const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } = item;
     return {
@@ -25,5 +24,4 @@ const DrinkList = ({ drinks }) => {
     </Wrapper>
   );
 };
-
-export default DrinkList;
+export default CocktailList;

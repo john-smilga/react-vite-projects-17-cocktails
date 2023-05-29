@@ -12,7 +12,6 @@ const CocktailCard = ({ image, name, id, info, glass }) => {
         <h4>{name}</h4>
         <h5>{glass}</h5>
         <p>{info}</p>
-
         <Link to={`/cocktail/${id}`} className='btn'>
           details
         </Link>
@@ -20,5 +19,4 @@ const CocktailCard = ({ image, name, id, info, glass }) => {
     </Wrapper>
   );
 };
-
 export default CocktailCard;
