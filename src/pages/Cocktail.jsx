@@ -9,7 +9,7 @@ const singleCocktailQuery = (id) => {
   return {
     queryKey: ['cocktail', id],
     queryFn: async () => {
-      const { data } = await axios.get(`${singleCocktailUrl}${id}`);
+      const { data } = await axios.get(`${singleCocktailUrl}${id}s`);
       return data;
     },
   };
@@ -49,12 +49,7 @@ const Cocktail = () => {
   return (
     <Wrapper>
       <header>
-        <button
-          className='btn'
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
+        <button className='btn' onClick={() => navigate(-1)}>
           back home
         </button>
         <h3>{name}</h3>
