@@ -9,7 +9,7 @@ const singleCocktailQuery = (id) => {
   return {
     queryKey: ['cocktail', id],
     queryFn: async () => {
-      const { data } = await axios.get(`${singleCocktailUrl}${id}s`);
+      const { data } = await axios.get(`${singleCocktailUrl}${id}`);
       return data;
     },
   };
