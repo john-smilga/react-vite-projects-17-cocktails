@@ -1223,7 +1223,7 @@ const SearchForm = ({ searchTerm }) => {
 export default SearchForm;
 ```
 
-#### Search Form CSS
+#### Search Form CSS (optional)
 
 assets/wrappers/SearchForm.js
 
